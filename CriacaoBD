@@ -1,0 +1,22 @@
+#Banco de dados em criado no MySQL
+
+CREATE DATABASE challenge;
+
+use challenge;
+
+CREATE TABLE users (
+	id int NOT NULL AUTO_INCREMENT,
+	name varchar(255) NOT NULL, 
+	email varchar(255) NOT NULL,
+	password varchar(255) NOT NULL, 
+PRIMARY KEY (id));
+
+CREATE TABLE phones (
+	id int NOT NULL AUTO_INCREMENT, 
+	ddd int NOT NULL, 
+	number varchar(255) NOT NULL, 
+	type varchar(255) NOT NULL, 
+	user_id int, 
+PRIMARY KEY (id), 
+FOREIGN KEY (user_id) REFERENCES users(id)
+ON DELETE CASCADE); 
